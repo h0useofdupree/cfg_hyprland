@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
-HYPRGAMEMODE=$(hyprctl getoption animations:enabled | awk 'NR==2{print $2}')
-if [ "$HYPRGAMEMODE" = 1 ] ; then
+HYPRGAMEMODE=$(cat ~/.config/hypr/variables/gamemode)
+
+if [ "$HYPRGAMEMODE" = 0 ] ; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword decoration:drop_shadow 0;\
@@ -10,6 +11,8 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
     
+    echo 1 > ~/.config/hypr/variables/gamemode
+    
     swww img ~/Pictures/walls/DS/tan.jpg -o DP-6
     notify-send 'Gamemode' 'Turning off secondary monitor'
     sleep 2
@@ -17,9 +20,9 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
     notify-send "Gamemode" "Gamemode turned on"
     exit
 fi
+echo 0 > ~/.config/hypr/variables/gamemode
 notify-send 'Gamemode' 'Turning on secondary monitor'
 sleep 2
 hyprctl reload
-# hyprctl keyword monitor 'DP-4, 1680x1050@59, 1920x0, 1'
 notify-send "Gamemode" "Gamemode turned off"
 fish -c 'pw'
