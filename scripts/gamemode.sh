@@ -25,4 +25,4 @@ notify-send 'Gamemode' 'Turning on secondary monitor'
 sleep 2
 hyprctl reload
 notify-send "Gamemode" "Gamemode turned off"
-fish -c 'pw'
+fish -c 'pwr'

@@ -14,3 +14,4 @@ notify-send 'Cinemamode' 'Turning on secondary monitor'
 sleep 2
 hyprctl reload
 notify-send "Cinemamode" "Cinemamode turned off"
+fish -c 'pwr'
