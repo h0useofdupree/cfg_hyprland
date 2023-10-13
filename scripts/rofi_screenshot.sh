@@ -1,0 +1,1 @@
+/home/juuls/.config/rofi/applets/menu/screenshot.sh
