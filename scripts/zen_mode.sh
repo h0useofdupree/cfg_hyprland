@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 ZENMODE=$(hyprctl getoption general:gaps_in | awk 'NR==2{print $2}')
 
-if [ "$ZENMODE" = 5 ] ; then
-  notify-send 'ZEN Mode' 'Removing restrictions and distractions'
+if [ "$ZENMODE" = 10 ] ; then
   
   if pidof waybar &>/dev/null; then
     killall waybar
@@ -19,6 +18,5 @@ if [ "$ZENMODE" = 5 ] ; then
   exit
 fi
 
-notify-send 'ZEN Mode' 'Returning to default mode'
 hyprctl reload
 notify-send 'ZEN Mode' 'Deactivated'
