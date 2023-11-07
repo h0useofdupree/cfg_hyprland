@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 ZENMODE=$(hyprctl getoption general:gaps_in | awk 'NR==2{print $2}')
 
-if [ "$ZENMODE" = 10 ] ; then
+if [ "$ZENMODE" = 20 ] ; then
   
   if pidof waybar &>/dev/null; then
     killall waybar
