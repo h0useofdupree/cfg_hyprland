@@ -17,6 +17,6 @@ if [ "$ZENMODE" = 20 ] ; then
   notify-send 'ZEN Mode' 'Activated'
   exit
 fi
-
+~/.config/hypr/scripts/restart_waybar.sh &
 hyprctl reload
 notify-send 'ZEN Mode' 'Deactivated'

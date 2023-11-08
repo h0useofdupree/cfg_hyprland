@@ -3,4 +3,4 @@
 if pidof waybar &>/dev/null; then
   killall waybar
 fi
-waybar &
+waybar -s $WAYBAR_STYLE &
