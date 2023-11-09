@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
+# Copyright (c) 2023 Joel Riekemann. All Rights Reserved.
+
+
 ZENMODE=$(hyprctl getoption general:gaps_in | awk 'NR==2{print $2}')
 
 if [ "$ZENMODE" = 20 ] ; then

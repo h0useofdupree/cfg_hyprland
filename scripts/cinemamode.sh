@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Copyright (c) 2023 Joel Riekemann. All Rights Reserved.
+
 CINEMAMODE=$(cat ~/.config/hypr/variables/cinemamode)
 
 if [ "$CINEMAMODE" = 0 ] ; then

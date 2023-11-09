@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
+# Copyright (c) 2023 Joel Riekemann. All Rights Reserved.
+
 GAMEMODE=$(cat ~/.config/hypr/variables/gamemode)
 
 if [ "$GAMEMODE" = 0 ] ; then
