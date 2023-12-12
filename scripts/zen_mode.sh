@@ -2,9 +2,11 @@
 # Copyright (c) 2023 Joel Riekemann. All Rights Reserved.
 
 
-ZENMODE=$(hyprctl getoption general:gaps_in | awk 'NR==2{print $2}')
+VARPATH="~/.config/hypr/var/zenmode"
+ZENMODE=$(cat $VARPATH)
 
-if [ "$ZENMODE" = 20 ] ; then
+if [ $ZENMODE = "0" ] ; then
+  echo "1" > $VARPATH
   
   if pidof waybar &>/dev/null; then
     killall waybar
@@ -20,6 +22,7 @@ if [ "$ZENMODE" = 20 ] ; then
   notify-send 'ZEN Mode' 'Activated'
   exit
 fi
+echo "0" > $VARPATH
 ~/.config/hypr/scripts/restart_waybar.sh &
 hyprctl reload
 notify-send 'ZEN Mode' 'Deactivated'

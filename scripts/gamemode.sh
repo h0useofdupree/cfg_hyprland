@@ -1,9 +1,10 @@
 #!/usr/bin/env sh
 # Copyright (c) 2023 Joel Riekemann. All Rights Reserved.
 
-GAMEMODE=$(cat ~/.config/hypr/variables/gamemode)
+VARPATH="~/.config/hypr/var/gamemode"
+GAMEMODE=$(cat ~/.config/hypr/var/gamemode)
 
-if [ "$GAMEMODE" = 0 ] ; then
+if [ $GAMEMODE = "0" ] ; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword decoration:drop_shadow 0;\
@@ -13,18 +14,16 @@ if [ "$GAMEMODE" = 0 ] ; then
         keyword general:border_size 1;\
         keyword decoration:rounding 0"
     
-    echo 1 > ~/.config/hypr/variables/gamemode
+    echo "1" > ~/.config/hypr/var/gamemode
     
-    swww img ~/Pictures/walls/DS/tan.jpg -o DP-6
     notify-send 'Gamemode' 'Deactivating secondary monitor'
-    sleep 2
+    sleep 1
     hyprctl keyword monitor 'DP-4, disable'
     notify-send "Gamemode" "Gamemode activated"
     exit
 fi
-echo 0 > ~/.config/hypr/variables/gamemode
+echo "0" > ~/.config/hypr/var/gamemode
 notify-send 'Gamemode' 'Activating secondary monitor'
-sleep 2
+sleep 1
 hyprctl reload
 notify-send "Gamemode" "Gamemode deactivated"
-fish -c 'pwr'
